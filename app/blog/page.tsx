@@ -2,8 +2,21 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 async function getData() {
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-  return response.json();
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+    next: {
+      revalidate: 60,
+    },
+    // headers: {
+    //   'Cache-Control': 'no-store', //может повысить нагрузку на сервер
+    // },
+    // headers: {
+    //    'Cache-Control': 'public, max-age=3600', //Этот вариант кеширует данные на стороне клиента и прокси-серверов, что может улучшить производительность и снизить нагрузку на сервер.
+    // },
+  });
+
+  const allPosts = await response.json();
+  const firstFivePosts = allPosts.slice(0, 20);
+  return firstFivePosts;
 }
 
 export const metadata: Metadata = {
