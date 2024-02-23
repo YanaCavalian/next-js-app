@@ -39,3 +39,24 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  border: 1px solid #377837;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  color: #000;
+}
+
+.card p {
+  color: #000;
+}

@@ -6,13 +6,9 @@ async function getData() {
     next: {
       revalidate: 60,
     },
-    // headers: {
-    //   'Cache-Control': 'no-store', //может повысить нагрузку на сервер
-    // },
-    // headers: {
-    //    'Cache-Control': 'public, max-age=3600', //Этот вариант кеширует данные на стороне клиента и прокси-серверов, что может улучшить производительность и снизить нагрузку на сервер.
-    // },
   });
+
+  if (!response.ok) throw new Error('Unable to fetch posts!');
 
   const allPosts = await response.json();
   const firstFivePosts = allPosts.slice(0, 20);
