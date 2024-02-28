@@ -33,7 +33,30 @@ header a:hover {
   flex-direction: column;
   align-items: center;
 }
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 300px;
+  margin: 0 auto;
+}
 
+.input {
+  width: 70%;
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.button {
+  width: 25%;
+  padding: 8px;
+  background-color: #377837;
+  color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+}
 footer {
   background-color: #377837;
   color: #fff;
